@@ -90,7 +90,7 @@ class _MyScrollViewState extends State<MyScrollView> {
                             ),
                             Image(
                               image: AssetImage(
-                                'assets/dollar-currency-symbol.png',
+                                'assets/add-cart.png',
                               ),
                               height: 40,
                               width: 40,
@@ -123,7 +123,7 @@ class _MyScrollViewState extends State<MyScrollView> {
                             ),
                             Image(
                               image: AssetImage(
-                                'assets/dollar-currency-symbol.png',
+                                'assets/icon-doller.png',
                               ),
                               height: 40,
                               width: 40,
@@ -156,7 +156,7 @@ class _MyScrollViewState extends State<MyScrollView> {
                             ),
                             Image(
                               image: AssetImage(
-                                'assets/dollar-currency-symbol.png',
+                                'assets/list.png',
                               ),
                               height: 40,
                               width: 40,

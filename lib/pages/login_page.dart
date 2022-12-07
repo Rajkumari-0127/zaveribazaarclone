@@ -1,23 +1,44 @@
-// import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:zaveribazar/pages/home_page.dart';
+import 'package:http/http.dart' as http;
 
 final primaryColor = Color(0xff004172);
 final accentColor = Color.fromARGB(255, 112, 120, 0);
 final textcolor = Colors.amberAccent.shade400;
 
-class LoginPage extends StatelessWidget {
-  // var resetPassword;
-
-  // const HomePage({super.key});
+class MyLoginPage extends StatelessWidget {
+  const MyLoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final _formKey = GlobalKey<FormState>();
-    final usernameController = TextEditingController();
-    final passwordController = TextEditingController();
+    return Scaffold(
+      body: LoginPage(),
+    );
+  }
+}
+
+class LoginPage extends StatefulWidget {
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  // var resetPassword;
+  Future<void> getData() async{
+    
+
+  }
+
+  final _formKey = GlobalKey<FormState>();
+  @override
+  Widget build(BuildContext context) {
+    // final usernameController = TextEditingController();
+    // final passwordController = TextEditingController();
     // var _formkey;
     // final theme;
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Center(
@@ -82,59 +103,66 @@ class LoginPage extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.all(16.0),
                           child: TextFormField(
-                            controller: usernameController,
-                            cursorColor: Theme.of(context).primaryColor,
-                            keyboardType: TextInputType.number,
-                            maxLength: 10,
-                            decoration: InputDecoration(
-                              hintText: 'Mobile Number',
-                              prefixIcon:
-                                  Icon(Icons.person, color: Colors.blue),
-                            ),
-                            validator: (v) {
-                              if (v == null || v.isEmpty) {
-                                return 'Please Enter Some Number';
-                              }
-                              return null;
-                            },
-                          ),
+                              // controller: usernameController,
+                              cursorColor: Theme.of(context).primaryColor,
+                              keyboardType: TextInputType.number,
+                              maxLength: 10,
+                              decoration: InputDecoration(
+                                hintText: 'Mobile number',
+                                prefixIcon: Icon(Icons.person),
+                              ),
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Please enter some Number';
+                                }
+                                return null;
+                              }),
                         ),
+
+                        // Password
                         Padding(
-                          padding: const EdgeInsets.all(10.0),
+                          padding: const EdgeInsets.all(16.0),
                           child: TextFormField(
-                            controller: usernameController,
+                            // controller: passwordController,
                             cursorColor: Theme.of(context).primaryColor,
                             obscureText: true,
-                            keyboardType: TextInputType.text,
-                            maxLength: 10,
                             decoration: InputDecoration(
-                              hintText: ' Password',
-                              prefixIcon: Icon(Icons.lock, color: Colors.blue),
+                              hintText: 'Password',
+                              prefixIcon: Icon(Icons.lock),
                             ),
-                            validator: (v) {
-                              if (v == null || v.isEmpty) {
-                                return 'Please Enter Some text';
+                            validator: (value) {
+                              if (value != null && value.isEmpty) {
+                                return "Password can't be empty";
                               }
+
                               return null;
                             },
                           ),
                         ),
+
+                        // Submit
+
                         Padding(
                           padding: const EdgeInsets.all(16.0),
                         ),
                         SizedBox(
                           height: 50,
                           width: 150,
-                          child: TextButton(
+                          child: ElevatedButton(
                             style: ButtonStyle(
                               backgroundColor: MaterialStateProperty.all<Color>(
-                                  Colors.black),
-                              foregroundColor: MaterialStateProperty.all<Color>(
-                                  Color.fromARGB(255, 249, 249, 249)),
+                                  primaryColor),
                             ),
                             // color:Colors.yellow.shade300,
 
-                            onPressed: () {},
+                            onPressed: () {
+                              getData(),
+                              if (_formKey.currentState!.validate()) {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => const HomePage()));
+                              }
+                            },
+
                             child: Text('Login'),
                           ),
                         ),
@@ -149,7 +177,7 @@ class LoginPage extends StatelessWidget {
               SizedBox(
                 height: 50,
                 width: 200,
-                child: TextButton(
+                child: ElevatedButton(
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all<Color>(
                         Color.fromARGB(255, 194, 67, 67)),
@@ -159,7 +187,7 @@ class LoginPage extends StatelessWidget {
                   // color:Colors.yellow.shade300,
 
                   onPressed: () {},
-                  child: Text('Create new Accout'),
+                  child: Text('Create New Account'),
                 ),
               ),
             ],
