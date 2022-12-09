@@ -1,6 +1,7 @@
-
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:zaveribazar/models/login.dart';
 import 'package:zaveribazar/pages/home_page.dart';
 import 'package:http/http.dart' as http;
 
@@ -25,20 +26,22 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  GlobalKey<FormState> globalFormKey = new GlobalKey<FormState>();
   // var resetPassword;
-  Future<void> getData() async{
-    
 
-  }
-
-  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    // final usernameController = TextEditingController();
-    // final passwordController = TextEditingController();
-    // var _formkey;
-    // final theme;
+    final usernameController = TextEditingController();
+    final passwordController = TextEditingController();
+    LoginRequestModel requestModel;
 
+    @override
+    void initState() {
+      super.initState();
+      requestModel = new LoginRequestModel(Password: '', Username: '');
+    }
+
+    // final theme;
     return Scaffold(
       body: SingleChildScrollView(
         child: Center(
@@ -96,14 +99,17 @@ class _LoginPageState extends State<LoginPage> {
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Form(
-                    key: _formKey,
+                    key: globalFormKey,
                     child: Column(
                       children: <Widget>[
                         //username
                         Padding(
                           padding: const EdgeInsets.all(16.0),
                           child: TextFormField(
-                              // controller: usernameController,
+                              onSaved: (input) =>
+                                  LoginRequestModel(Username: "").Username =
+                                      input,
+                              controller: usernameController,
                               cursorColor: Theme.of(context).primaryColor,
                               keyboardType: TextInputType.number,
                               maxLength: 10,
@@ -123,7 +129,9 @@ class _LoginPageState extends State<LoginPage> {
                         Padding(
                           padding: const EdgeInsets.all(16.0),
                           child: TextFormField(
-                            // controller: passwordController,
+                            onSaved: (input) => LoginRequestModel(Password: "")
+                                .Password = input,
+                            controller: passwordController,
                             cursorColor: Theme.of(context).primaryColor,
                             obscureText: true,
                             decoration: InputDecoration(
@@ -156,10 +164,8 @@ class _LoginPageState extends State<LoginPage> {
                             // color:Colors.yellow.shade300,
 
                             onPressed: () {
-                              getData(),
-                              if (_formKey.currentState!.validate()) {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => const HomePage()));
+                              if (validateAndSave()) {
+                                print('success');
                               }
                             },
 
@@ -196,8 +202,16 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
-}
 
+  bool validateAndSave() {
+    final form = globalFormKey.currentState;
+    if (form!.validate()) {
+      form.save();
+      return true;
+    }
+    return false;
+  }
+}
 
 
 // _buildBody() {

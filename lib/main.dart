@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zaveribazar/pages/home_page.dart';
+import 'package:zaveribazar/pages/log.dart';
 import 'package:zaveribazar/pages/login_page.dart';
 import 'package:zaveribazar/services/horizontal.dart';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       // theme: ThemeData(appBarTheme:),
       debugShowCheckedModeBanner: false,
-      home: MyLoginPage(),
+      home: LoginPage(),
     );
   }
 }

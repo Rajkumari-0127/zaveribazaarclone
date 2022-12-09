@@ -1,0 +1,166 @@
+{
+	"info": {
+		"_postman_id": "fd67c6cf-e626-4d60-af7c-e532de05902c",
+		"name": "for task zaveribazar",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "signup",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "mobile",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "role",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "pincode",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "retailer_firm_name",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "city_id",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "visiting_card",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "dealer_type",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": "https://test.zaveribazaar.co.in/public/api/m/signup2"
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "role",
+							"value": "",
+							"description": "retailer or wholesaler",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "fcm_token",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": "https://test.zaveribazaar.co.in/public/api/users/login"
+			},
+			"response": []
+		},
+		{
+			"name": "dealer_type",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://test.zaveribazaar.co.in/public/api/dealer_type/list?nopaginate=&per_page=&query=&retailer=&wholesaler=",
+					"protocol": "https",
+					"host": [
+						"test",
+						"zaveribazaar",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"api",
+						"dealer_type",
+						"list"
+					],
+					"query": [
+						{
+							"key": "nopaginate",
+							"value": ""
+						},
+						{
+							"key": "per_page",
+							"value": ""
+						},
+						{
+							"key": "query",
+							"value": ""
+						},
+						{
+							"key": "retailer",
+							"value": ""
+						},
+						{
+							"key": "wholesaler",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cities",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://test.zaveribazaar.co.in/public/api/cities"
+			},
+			"response": []
+		}
+	]
+}
