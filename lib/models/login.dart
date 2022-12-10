@@ -1,4 +1,5 @@
 class LoginResponseModel {
+  // final String responserole;
   final String token;
   final String error;
 
@@ -12,15 +13,17 @@ class LoginResponseModel {
 }
 
 class LoginRequestModel {
-  String? Username;
-  String? Password;
+  String? role = 'retailer';
+  String? username;
+  String? password;
 
-  LoginRequestModel({this.Username, this.Password});
+  LoginRequestModel({this.role, this.username, this.password});
 
   Map<String, dynamic> toJson() {
     Map<String, dynamic> map = {
-      "Username": Username?.trim(),
-      "password": Password?.trim()
+      'role': role?.trim(),
+      "username": username?.trim(),
+      "password": password?.trim()
     };
     return map;
   }
