@@ -1,9 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:zaveribazar/pages/feed.dart';
+import 'package:zaveribazar/pages/profile.dart';
 import 'package:zaveribazar/services/horizontal.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class HomePage extends StatefulWidget {
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int currentindex = 0;
+  static const List<Widget> screen = <Widget>[
+    MyScrollView(),
+    MyFeedPage(),
+    MyProfilePage(),
+  ];
+  void ontapMethod(int index) {
+    setState(() {
+      currentindex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,8 +52,22 @@ class HomePage extends StatelessWidget {
         backgroundColor: Color.fromARGB(255, 255, 255, 255),
         iconTheme: IconThemeData(color: Color.fromARGB(255, 0, 0, 0)),
       ),
-      body: MyScrollView(),
+      body: screen[currentindex],
       drawer: Drawer(),
+
+      bottomNavigationBar: BottomNavigationBar(items: [
+        BottomNavigationBarItem(icon: Icon(Icons.home), label: "homepage"),
+        BottomNavigationBarItem(icon: Icon(Icons.favorite), label: "feeds"),
+        BottomNavigationBarItem(icon: Icon(Icons.settings), label: "Settings")
+      ], selectedItemColor: Colors.amber[800], onTap: ontapMethod),
+
+      // bottomNavigationBar: ,
     );
   }
+
+  // void pageChanged(int index) {
+  //   setState(() {
+  //     bottomSelectedIndex = index;
+  //   });
+  // }
 }
