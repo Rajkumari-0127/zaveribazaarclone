@@ -1,126 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:zaveribazar/services/Postpage.dart';
 
-class MyProductPage extends StatefulWidget {
-  const MyProductPage({super.key});
+// const primarycolor = Color(	#D3D3D3);
 
-  @override
-  State<MyProductPage> createState() => _MyProductPageState();
-}
+class MyPostView extends StatelessWidget {
+  const MyPostView({super.key});
 
-class _MyProductPageState extends State<MyProductPage> {
   @override
   Widget build(BuildContext context) {
+    padding:
+    new EdgeInsets.only(left: 8.0);
     return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: Column(
-        children: [
-          Container(
-            width: 600,
-            height: 60,
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              shrinkWrap: true,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    child: Text(
-                      "button1",
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    child: Text(
-                      "button2",
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    child: Text(
-                      "button3",
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    child: Text(
-                      "button4",
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 400,
-                ),
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
-            child: Center(
-              child: Card(
-                elevation: 5,
-                child: Container(
-                  height: 50,
-                  width: 500,
-                  child: TextField(
-                    decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.search),
-                      border: InputBorder.none,
-                      hintText: 'Search in Jewellery',
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ),
-          SizedBox(
-            height: 20,
-            width: 100,
-          ),
-        ],
+      backgroundColor: Color.fromARGB(255, 255, 0, 0),
+      drawer: Drawer(),
+      appBar: AppBar(
+        title: Text(
+          "Product Page",
+          style: GoogleFonts.poppins(
+              fontSize: 25,
+              color: Colors.black,
+              letterSpacing: 1,
+              fontWeight: FontWeight.bold),
+        ),
+        elevation: 0,
+        backgroundColor: Colors.white,
+        iconTheme: IconThemeData(color: Colors.black),
       ),
+      body: Stack(children: [PostView(), NavBarPost()]),
     );
   }
 }
-
-
-// Stack(children: [
-//                       Column(
-//                         crossAxisAlignment: CrossAxisAlignment.stretch,
-//                         children: [
-//                           Expanded(
-//                             child: Image.asset(
-//                               'assets/images/jewellery1.jpg',
-//                               fit: BoxFit.fill,
-//                             ),
-//                           ),
-//                           Text(
-//                             'title',
-//                             style: TextStyle(
-//                                 fontSize: 18, fontWeight: FontWeight.bold),
-//                           ),
-//                           Row(
-//                             children: [
-//                               Text(
-//                                 "subtile",
-//                                 style: TextStyle(
-//                                     fontSize: 18, fontWeight: FontWeight.bold),
-//                               )
-//                             ],
-//                           )
-//                         ],
-//                       )
-//                     ]),

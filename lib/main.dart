@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zaveribazar/pages/feed.dart';
+import 'package:zaveribazar/pages/login_page.dart';
 import 'package:zaveribazar/pages/product_page.dart';
 import 'package:zaveribazar/pages/profile.dart';
 import 'package:zaveribazar/pages/home_page.dart';
@@ -18,10 +19,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        // theme: ThemeData(appBarTheme:),
+        // theme: ThemeData(appBarTheme: Colors.white),
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(backgroundColor: Color.fromRGBO(191, 222, 248, 1)),
+        theme: ThemeData(
+          backgroundColor: Color.fromRGBO(191, 222, 248, 1),
+        ),
         // home: MyLoginPost(),
-        home: MyProductPage());
+        home: MyPostView());
   }
 }
