@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:zaveribazar/login.dart';
 
 import 'package:zaveribazar/pages/home_page.dart';
 import 'package:http/http.dart' as http;
@@ -163,12 +164,24 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                             // color:Colors.yellow.shade300,
 
-                            onPressed: () {
-                              if (validateAndSave()) {
-                                print('success');
-                              }
+                            onPressed: () async {
+                              print("Hello");
+                              await login(usernameController.text,
+                                      passwordController.text)
+                                  .then((value) {
+                                if (value != null) {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => HomePage()));
+                                }
+                              });
+                              //   Navigator.push(
+                              //       context,
+                              //       MaterialPageRoute(
+                              //           builder: ((context) => HomePage())));
+                              // },
                             },
-
                             child: Text('Login'),
                           ),
                         ),
@@ -203,17 +216,6 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  bool validateAndSave() {
-    final form = globalFormKey.currentState;
-    if (form!.validate()) {
-      form.save();
-      return true;
-    }
-    return false;
-  }
-}
-
-
 // _buildBody() {
 //   return ListView(
 //     children: <Widget>[
@@ -221,7 +223,6 @@ class _LoginPageState extends State<LoginPage> {
 //     ],
 //   );
 // }
-
 
 // // import 'dart:convert';
 // // import 'dart:html';
@@ -303,7 +304,7 @@ class _LoginPageState extends State<LoginPage> {
 //   Dio dio = new Dio(); //8th Dec start post
 //   Future postData() async {
 //     final String pathUrl = 'https://jsonplaceholder.typicode.com/posts';
- 
+
 //     dynamic data = {
 //       'title': 'flutter http post',
 //       'body': 'flutter is awesome',
@@ -569,3 +570,4 @@ class _LoginPageState extends State<LoginPage> {
 // //   }
 // // }
 // // }
+}

@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'package:zaveribazar/pages/Product_child.dart';
 
 const primarycolors = Color(0xFF002B55);
 
@@ -14,7 +15,7 @@ class _PostViewState extends State<PostView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.only(top: 90),
+        padding: const EdgeInsets.only(top: 100),
         child: Container(
             color: Colors.grey.shade200,
             child: GridView.extent(
@@ -24,161 +25,497 @@ class _PostViewState extends State<PostView> {
                 mainAxisSpacing: 8,
                 maxCrossAxisExtent: 220.0,
                 children: <Widget>[
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    child: Stack(
-                      children: [
-                        Image.asset("assets/images/jewellery2.jpg"),
-                        Positioned(
-                          top: 140,
-                          child: Container(
-                            height: 30,
-                            width: 175,
-                            color: primarycolors,
-                            child: Align(
-                              child: Text(
-                                "Necklace",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold),
-                                textAlign: TextAlign.center,
-                              ),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: ((context) => ProductChild())));
+                    },
+                    child: Container(
+                      height: 100,
+                      width: 100,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          color: Color.fromARGB(255, 255, 255, 255),
+                          boxShadow: [
+                            new BoxShadow(
+                                color: Colors.grey,
+                                offset: Offset(2, 7),
+                                blurRadius: 5)
+                          ]),
+                      child: Column(children: [
+                        Image.asset(
+                          "assets/images/jewellery1.jpg",
+                          height: 145,
+                          fit: BoxFit.fitWidth,
+                        ),
+                        SizedBox(
+                          height: 0.5,
+                        ),
+                        Container(
+                          width: double.maxFinite,
+                          height: 40,
+                          decoration: BoxDecoration(
+                            borderRadius: const BorderRadius.only(
+                                bottomLeft: Radius.circular(8),
+                                bottomRight: Radius.circular(8)),
+                            color: Colors.blue,
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 4),
+                            child: Text(
+                              "Necklace",
+                              style: TextStyle(
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
+                              textAlign: TextAlign.center,
                             ),
                           ),
                         ),
-                      ],
+                      ]),
                     ),
                   ),
                   Container(
-                    padding: const EdgeInsets.all(8),
-                    child: Stack(
-                      children: [
-                        Image.asset("assets/images/jewellery2.jpg"),
-                        Positioned(
-                          top: 140,
-                          child: Container(
-                            height: 30,
-                            width: 175,
-                            color: primarycolors,
-                            child: Align(
-                              child: Text(
-                                "Necklace",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold),
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
+                    height: 100,
+                    width: 100,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        color: Color.fromARGB(255, 255, 255, 255),
+                        boxShadow: [
+                          new BoxShadow(
+                              color: Colors.grey,
+                              offset: Offset(2, 7),
+                              blurRadius: 5)
+                        ]),
+                    child: Column(children: [
+                      Image.asset(
+                        "assets/images/jewellery1.jpg",
+                        height: 145,
+                        fit: BoxFit.fitWidth,
+                      ),
+                      SizedBox(
+                        height: 0.5,
+                      ),
+                      Container(
+                        width: double.maxFinite,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          borderRadius: const BorderRadius.only(
+                              bottomLeft: Radius.circular(8),
+                              bottomRight: Radius.circular(8)),
+                          color: Colors.blue,
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 4),
+                          child: Text(
+                            "Necklace",
+                            style: TextStyle(
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
+                            textAlign: TextAlign.center,
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ]),
                   ),
                   Container(
-                    padding: const EdgeInsets.all(8),
-                    child: Stack(
-                      children: [
-                        Image.asset("assets/images/jewellery2.jpg"),
-                        Positioned(
-                          top: 140,
-                          child: Container(
-                            height: 30,
-                            width: 175,
-                            color: primarycolors,
-                            child: Align(
-                              child: Text(
-                                "Necklace",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold),
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
+                    height: 100,
+                    width: 100,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        color: Color.fromARGB(255, 255, 255, 255),
+                        boxShadow: [
+                          new BoxShadow(
+                              color: Colors.grey,
+                              offset: Offset(2, 7),
+                              blurRadius: 5)
+                        ]),
+                    child: Column(children: [
+                      Image.asset(
+                        "assets/images/jewellery1.jpg",
+                        height: 145,
+                        fit: BoxFit.fitWidth,
+                      ),
+                      SizedBox(
+                        height: 0.5,
+                      ),
+                      Container(
+                        width: double.maxFinite,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          borderRadius: const BorderRadius.only(
+                              bottomLeft: Radius.circular(8),
+                              bottomRight: Radius.circular(8)),
+                          color: Colors.blue,
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 4),
+                          child: Text(
+                            "Necklace",
+                            style: TextStyle(
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
+                            textAlign: TextAlign.center,
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ]),
                   ),
                   Container(
-                    padding: const EdgeInsets.all(8),
-                    child: Stack(
-                      children: [
-                        Image.asset("assets/images/jewellery2.jpg"),
-                        Positioned(
-                          top: 140,
-                          child: Container(
-                            height: 30,
-                            width: 175,
-                            color: primarycolors,
-                            child: Align(
-                              child: Text(
-                                "Necklace",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold),
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
+                    height: 100,
+                    width: 100,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        color: Color.fromARGB(255, 255, 255, 255),
+                        boxShadow: [
+                          new BoxShadow(
+                              color: Colors.grey,
+                              offset: Offset(2, 7),
+                              blurRadius: 5)
+                        ]),
+                    child: Column(children: [
+                      Image.asset(
+                        "assets/images/jewellery1.jpg",
+                        height: 145,
+                        fit: BoxFit.fitWidth,
+                      ),
+                      SizedBox(
+                        height: 0.5,
+                      ),
+                      Container(
+                        width: double.maxFinite,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          borderRadius: const BorderRadius.only(
+                              bottomLeft: Radius.circular(8),
+                              bottomRight: Radius.circular(8)),
+                          color: Colors.blue,
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 4),
+                          child: Text(
+                            "Necklace",
+                            style: TextStyle(
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
+                            textAlign: TextAlign.center,
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ]),
                   ),
                   Container(
-                    padding: const EdgeInsets.all(8),
-                    child: Stack(
-                      children: [
-                        Image.asset("assets/images/jewellery2.jpg"),
-                        Positioned(
-                          top: 140,
-                          child: Container(
-                            height: 30,
-                            width: 175,
-                            color: primarycolors,
-                            child: Align(
-                              child: Text(
-                                "Necklace",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold),
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
+                    height: 100,
+                    width: 100,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        color: Color.fromARGB(255, 255, 255, 255),
+                        boxShadow: [
+                          new BoxShadow(
+                              color: Colors.grey,
+                              offset: Offset(2, 7),
+                              blurRadius: 5)
+                        ]),
+                    child: Column(children: [
+                      Image.asset(
+                        "assets/images/jewellery1.jpg",
+                        height: 145,
+                        fit: BoxFit.fitWidth,
+                      ),
+                      SizedBox(
+                        height: 0.5,
+                      ),
+                      Container(
+                        width: double.maxFinite,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          borderRadius: const BorderRadius.only(
+                              bottomLeft: Radius.circular(8),
+                              bottomRight: Radius.circular(8)),
+                          color: Colors.blue,
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 4),
+                          child: Text(
+                            "Necklace",
+                            style: TextStyle(
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
+                            textAlign: TextAlign.center,
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ]),
                   ),
                   Container(
-                    padding: const EdgeInsets.all(8),
-                    child: Stack(
-                      children: [
-                        Image.asset("assets/images/jewellery2.jpg"),
-                        Positioned(
-                          top: 140,
-                          child: Container(
-                            height: 30,
-                            width: 175,
-                            color: primarycolors,
-                            child: Align(
-                              child: Text(
-                                "Necklace",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold),
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
+                    height: 100,
+                    width: 100,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        color: Color.fromARGB(255, 255, 255, 255),
+                        boxShadow: [
+                          new BoxShadow(
+                              color: Colors.grey,
+                              offset: Offset(2, 7),
+                              blurRadius: 5)
+                        ]),
+                    child: Column(children: [
+                      Image.asset(
+                        "assets/images/jewellery1.jpg",
+                        height: 145,
+                        fit: BoxFit.fitWidth,
+                      ),
+                      SizedBox(
+                        height: 0.5,
+                      ),
+                      Container(
+                        width: double.maxFinite,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          borderRadius: const BorderRadius.only(
+                              bottomLeft: Radius.circular(8),
+                              bottomRight: Radius.circular(8)),
+                          color: Colors.blue,
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 4),
+                          child: Text(
+                            "Necklace",
+                            style: TextStyle(
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
+                            textAlign: TextAlign.center,
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ]),
+                  ),
+                  Container(
+                    height: 100,
+                    width: 100,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        color: Color.fromARGB(255, 255, 255, 255),
+                        boxShadow: [
+                          new BoxShadow(
+                              color: Colors.grey,
+                              offset: Offset(2, 7),
+                              blurRadius: 5)
+                        ]),
+                    child: Column(children: [
+                      Image.asset(
+                        "assets/images/jewellery1.jpg",
+                        height: 145,
+                        fit: BoxFit.fitWidth,
+                      ),
+                      SizedBox(
+                        height: 0.5,
+                      ),
+                      Container(
+                        width: double.maxFinite,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          borderRadius: const BorderRadius.only(
+                              bottomLeft: Radius.circular(8),
+                              bottomRight: Radius.circular(8)),
+                          color: Colors.blue,
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 4),
+                          child: Text(
+                            "Necklace",
+                            style: TextStyle(
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ),
+                    ]),
+                  ),
+                  Container(
+                    height: 100,
+                    width: 100,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        color: Color.fromARGB(255, 255, 255, 255),
+                        boxShadow: [
+                          new BoxShadow(
+                              color: Colors.grey,
+                              offset: Offset(2, 7),
+                              blurRadius: 5)
+                        ]),
+                    child: Column(children: [
+                      Image.asset(
+                        "assets/images/jewellery1.jpg",
+                        height: 145,
+                        fit: BoxFit.fitWidth,
+                      ),
+                      SizedBox(
+                        height: 0.5,
+                      ),
+                      Container(
+                        width: double.maxFinite,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          borderRadius: const BorderRadius.only(
+                              bottomLeft: Radius.circular(8),
+                              bottomRight: Radius.circular(8)),
+                          color: Colors.blue,
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 4),
+                          child: Text(
+                            "Necklace",
+                            style: TextStyle(
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ),
+                    ]),
+                  ),
+                  Container(
+                    height: 100,
+                    width: 100,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        color: Color.fromARGB(255, 255, 255, 255),
+                        boxShadow: [
+                          new BoxShadow(
+                              color: Colors.grey,
+                              offset: Offset(2, 7),
+                              blurRadius: 5)
+                        ]),
+                    child: Column(children: [
+                      Image.asset(
+                        "assets/images/jewellery1.jpg",
+                        height: 145,
+                        fit: BoxFit.fitWidth,
+                      ),
+                      SizedBox(
+                        height: 0.5,
+                      ),
+                      Container(
+                        width: double.maxFinite,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          borderRadius: const BorderRadius.only(
+                              bottomLeft: Radius.circular(8),
+                              bottomRight: Radius.circular(8)),
+                          color: Colors.blue,
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 4),
+                          child: Text(
+                            "Necklace",
+                            style: TextStyle(
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ),
+                    ]),
+                  ),
+                  Container(
+                    height: 100,
+                    width: 100,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        color: Color.fromARGB(255, 255, 255, 255),
+                        boxShadow: [
+                          new BoxShadow(
+                              color: Colors.grey,
+                              offset: Offset(2, 7),
+                              blurRadius: 5)
+                        ]),
+                    child: Column(children: [
+                      Image.asset(
+                        "assets/images/jewellery1.jpg",
+                        height: 145,
+                        fit: BoxFit.fitWidth,
+                      ),
+                      SizedBox(
+                        height: 0.5,
+                      ),
+                      Container(
+                        width: double.maxFinite,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          borderRadius: const BorderRadius.only(
+                              bottomLeft: Radius.circular(8),
+                              bottomRight: Radius.circular(8)),
+                          color: Colors.blue,
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 4),
+                          child: Text(
+                            "Necklace",
+                            style: TextStyle(
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ),
+                    ]),
+                  ),
+                  Container(
+                    height: 100,
+                    width: 100,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        color: Color.fromARGB(255, 255, 255, 255),
+                        boxShadow: [
+                          new BoxShadow(
+                              color: Colors.grey,
+                              offset: Offset(2, 7),
+                              blurRadius: 5)
+                        ]),
+                    child: Column(children: [
+                      Image.asset(
+                        "assets/images/jewellery1.jpg",
+                        height: 145,
+                        fit: BoxFit.fitWidth,
+                      ),
+                      SizedBox(
+                        height: 0.5,
+                      ),
+                      Container(
+                        width: double.maxFinite,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          borderRadius: const BorderRadius.only(
+                              bottomLeft: Radius.circular(8),
+                              bottomRight: Radius.circular(8)),
+                          color: Colors.blue,
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 4),
+                          child: Text(
+                            "Necklace",
+                            style: TextStyle(
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ),
+                    ]),
                   ),
                 ])),
       ),

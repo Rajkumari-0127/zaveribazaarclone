@@ -1,4 +1,11 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:zaveribazar/api/login_model.dart';
+
+import '../dealer_model.dart';
+import '../login.dart';
 
 class MyProfilePage extends StatefulWidget {
   const MyProfilePage({super.key});
@@ -7,10 +14,56 @@ class MyProfilePage extends StatefulWidget {
   State<MyProfilePage> createState() => _MpProfilePageState();
 }
 
+var user = User();
+
 class _MpProfilePageState extends State<MyProfilePage> {
+  // List<User> Profile = [];
+  // GetProfilePage() {
+  //   getProfile().then((res) {
+  //     setState(() {
+  //       user = res;
+  //       Profile = user as List<User>;
+  //     });
+  //   });
+  // }
+
+  // @override
+  // void initState() {
+  //   // TODO: implement initState
+  //   super.initState();
+  //   GetProfilePage();
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        // centerTitle:
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              'Zaveribazaar',
+              style: GoogleFonts.poppins(
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 1,
+                  color: Colors.black),
+            ),
+            InkWell(
+              child: Icon(Icons.search),
+            ),
+            InkWell(
+              child: Ink.image(
+                image: AssetImage('assets/whatsapplogo.png'),
+                width: 30,
+                height: 40,
+              ),
+            ),
+          ],
+        ),
+        backgroundColor: Color.fromARGB(255, 255, 255, 255),
+        iconTheme: IconThemeData(color: Color.fromARGB(255, 0, 0, 0)),
+      ),
       backgroundColor: Color.fromARGB(255, 209, 217, 222),
       resizeToAvoidBottomInset: true,
       body: SingleChildScrollView(
@@ -31,7 +84,7 @@ class _MpProfilePageState extends State<MyProfilePage> {
                   size: 40,
                 ),
                 title: Text(
-                  "Sagar Jain",
+                  "hhh",
                   style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
                 ),
                 subtitle: Text("@9930995513"),
