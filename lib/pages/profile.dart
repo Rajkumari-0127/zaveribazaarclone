@@ -2,6 +2,7 @@ import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:zaveribazar/api/login_model.dart';
 
 import '../dealer_model.dart';
@@ -27,12 +28,19 @@ class _MpProfilePageState extends State<MyProfilePage> {
   //   });
   // }
 
-  // @override
-  // void initState() {
-  //   // TODO: implement initState
-  //   super.initState();
-  //   GetProfilePage();
-  // }
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    // GetProfilePage();
+    getData();
+  }
+
+  String name = "";
+  getData() async {
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    name = pref.getString('username')!;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -84,7 +92,7 @@ class _MpProfilePageState extends State<MyProfilePage> {
                   size: 40,
                 ),
                 title: Text(
-                  "hhh",
+                  "$name",
                   style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
                 ),
                 subtitle: Text("@9930995513"),

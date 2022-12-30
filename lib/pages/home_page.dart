@@ -30,40 +30,11 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  List<Data> dealerList = [];
-  var error;
-  bool loading = false;
-  getDealer() {
-    setState(() {
-      loading = true;
-    });
-    getDealerList().then((res) {
-      setState(() {
-        user = res;
-      });
-
-      // List<Data> dealer = Data.listFromJson(res);
-      // if (mounted) {
-      //   setState(() {
-      //     dealerList.addAll(dealer);
-      //     error = null;
-      //   });
-      // }
-    }).catchError((e) {
-      if (mounted) {
-        setState(() {
-          error = e;
-          loading = false;
-        });
-      }
-    });
-  }
-
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    getDealer();
+    // getDealer();
   }
 
   @override

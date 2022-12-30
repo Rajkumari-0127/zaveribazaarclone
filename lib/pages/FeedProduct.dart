@@ -18,7 +18,7 @@ class _FeedProductState extends State<FeedProduct> {
               children: [
                 Container(
                   width: double.maxFinite,
-                  height: 130,
+                  height: 95,
                   color: Colors.white,
                   child: Image.asset("assets/images/jewellery1.jpg"),
                 ),

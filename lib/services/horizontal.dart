@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../dealer_model.dart';
+import '../login.dart';
+
 final Smallcard = Color.fromARGB(230, 182, 232, 245);
 final primaryColor = Color(0xff004172);
 
@@ -11,6 +14,43 @@ class MyScrollView extends StatefulWidget {
 }
 
 class _MyScrollViewState extends State<MyScrollView> {
+  List<Data> dealerList = [];
+  var error;
+  bool loading = false;
+  getDealer() {
+    setState(() {
+      loading = true;
+    });
+    getDealerList().then((res) {
+      // setState(() {
+      //   user = res;
+      // });
+
+      List<Data> dealer = Data.listFromJson(res);
+      if (mounted) {
+        setState(() {
+          dealerList.addAll(dealer);
+          print(dealerList.length);
+          error = null;
+        });
+      }
+    }).catchError((e) {
+      if (mounted) {
+        setState(() {
+          error = e;
+          loading = false;
+        });
+      }
+    });
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getDealer();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,6 +59,12 @@ class _MyScrollViewState extends State<MyScrollView> {
           SizedBox(
             height: 20,
           ),
+          ListView.builder(
+              shrinkWrap: true,
+              itemCount: dealerList.length,
+              itemBuilder: (context, index) {
+                return Text(dealerList[index].dealerTypeName.toString());
+              }),
           Container(
             height: 50,
             width: 500,

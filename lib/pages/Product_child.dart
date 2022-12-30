@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:zaveribazar/pages/FeedProduct.dart';
 import 'package:zaveribazar/services/Postpage.dart';
+import 'package:zaveribazar/services/alertDialog.dart';
 
 class ProductChild extends StatefulWidget {
   const ProductChild({super.key});
@@ -19,16 +20,7 @@ class _ProductChildState extends State<ProductChild> {
           child: Stack(children: <Widget>[
             MyProduct_child_View(),
             ChildNavbar(),
-            Padding(
-              padding: const EdgeInsets.only(
-                top: 700,
-              ),
-              child: Container(
-                height: 100,
-                width: 500,
-                color: Colors.white,
-              ),
-            ),
+            BottomNavbar()
           ])),
     );
   }
@@ -366,8 +358,8 @@ class _MyProduct_child_ViewState extends State<MyProduct_child_View> {
         itemCount: 10,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
-            crossAxisSpacing: 20,
-            mainAxisSpacing: 30,
+            crossAxisSpacing: 10,
+            mainAxisSpacing: 10,
             childAspectRatio: 200 / (550 / 2)),
         itemBuilder: (context, index) {
           return Container(
@@ -378,3 +370,81 @@ class _MyProduct_child_ViewState extends State<MyProduct_child_View> {
     );
   }
 }
+
+class BottomNavbar extends StatefulWidget {
+  const BottomNavbar({super.key});
+
+  @override
+  State<BottomNavbar> createState() => _BottomNavbarState();
+}
+
+class _BottomNavbarState extends State<BottomNavbar> {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 600),
+      child: Container(
+        height: 100,
+        width: double.maxFinite,
+        // color: Colors.blue,
+        child: Column(children: [
+          Container(
+            alignment: Alignment.center,
+            color: Colors.blue,
+            width: double.maxFinite,
+            height: 30,
+            child: Text(
+              "Product nahi Mil raha hai ask to zb team",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold),
+            ),
+          ),
+          Container(
+            height: 59,
+            color: Colors.white,
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SizedBox(
+                      height: 40,
+                      width: 175,
+                      child: ElevatedButton(
+                          onPressed: () {
+                            // Melting();
+                          },
+                          child: Text("Melting"))),
+                  SizedBox(
+                      height: 40,
+                      width: 175,
+                      child: ElevatedButton(
+                          onPressed: () {}, child: Text("Weight"))),
+                ]),
+          )
+        ]),
+      ),
+    );
+  }
+}
+
+// Future Melting() {
+//   return showDialog<void>(
+//       context: context,
+//       builder: (BuildContext context) {
+//         return AlertDialog(
+//           title: Text("hello"),
+//           content: Text("helllo"),
+//           actions: <Widget>[
+//             ElevatedButton(
+//                 onPressed: () => Navigator.pop(
+//                       context,
+//                       "Yes",
+//                     ),
+//                 child: Text("hello")),
+//             ElevatedButton(onPressed: (() {}), child: Text("hello")),
+//           ],
+//         );
+//       });
+// }
